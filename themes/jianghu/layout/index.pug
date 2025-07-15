@@ -1,0 +1,71 @@
+extends layout.pug
+
+block title
+  title= config.title
+
+block content
+  include ../_partial/header.pug
+
+  // Hero Section
+  section.hero-section#home
+    .container
+      h1 展现你的想法
+      p.slogan 简洁、优雅、强大
+      a.btn.btn-primary(href='#articles') 开始您的旅程
+      .scroll-indicator
+        i.fa.fa-chevron-down
+
+  // Main Content Area
+  section.main-content
+    .container
+      .row
+        // Left Column: Article List
+        .col-lg-8.content-area#articles
+          h2.section-title 最新文章
+          each post in page.posts.toArray()
+            article.article-card
+              img.article-card-img-top(src=url_for(post.cover || 'https://via.placeholder.com/800x400.png?text=Article+Image'), alt=post.title)
+              .article-card-header
+                .post-info
+                  i.fa.fa-folder
+                  if post.categories && post.categories.length > 0
+                    each category in post.categories.toArray()
+                      a(href=url_for(category.path))= category.name
+                  | &nbsp;&nbsp;
+                  i.fa.fa-calendar-o
+                  | #{date(post.date, 'YYYY年MM月DD日')}
+                .author-info
+                  i.fa.fa-user
+                  a(href='#')= config.author || '匿名'
+              .article-card-body
+                h3.article-card-title
+                  a(href=url_for(post.path))= post.title
+                p.article-card-summary!= post.excerpt || strip_html(post.content).substring(0, 150) + '...'
+              .article-card-footer
+                a.btn-read-more(href=url_for(post.path))
+                  | 阅读更多
+                  i.fa.fa-arrow-right
+          // Pagination
+          section.pagination-section
+            nav(aria-label='页面导航')
+              ul.pagination
+                if page.prev
+                  li.page-item
+                    a.page-link(href=url_for(page.prev.path))
+                      i.fa.fa-chevron-left
+                each i in range(1, page.total + 1)
+                  li.page-item(class={active: i === page.current})
+                    a.page-link(href=url_for(i === 1 ? '/' : 'page/' + i))= i
+                if page.next
+                  li.page-item
+                    a.page-link(href=url_for(page.next.path))
+                      i.fa.fa-chevron-right
+        // Right Column: Sidebar
+        .col-lg-4
+          include ../_partial/sidebar.pug
+  // Footer Area
+  .footer-wrapper
+    // Scroll to Top Button
+    button.scroll-to-top(aria-label='滚动到顶部')
+      i.fa.fa-arrow-up
+    include ../_partial/footer.pug

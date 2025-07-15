@@ -1,0 +1,32 @@
+header.site-header
+  // Search Modal
+  .search-modal#search-modal
+    .search-modal-content
+      span.search-modal-close#search-modal-close &times;
+      input.search-modal-input(type='text', placeholder='输入并搜索...')
+
+  .container-fluid
+    // Brand
+    a.navbar-brand(href=url_for('/'))= config.title
+
+    // Toggler
+    button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#main-nav', aria-controls='main-nav', aria-expanded='false', aria-label='切换导航')
+      span.navbar-toggler-icon
+
+    // Collapsible Content: A single container for all nav items
+    .collapse.navbar-collapse#main-nav
+      ul.navbar-nav.ms-auto.mb-2.mb-lg-0.align-items-center
+        li.nav-item
+          a.nav-link.active(href=url_for('/')) 家
+        if config.menu
+          each value, key in config.menu
+            li.nav-item
+              a.nav-link(href=url_for(value))= key
+        li.nav-item.ms-lg-3
+          button#search-open-btn.nav-link
+            i.fa.fa-search
+        li.nav-item
+          a.nav-link(href='#comments')
+            i.fa.fa-comments-o
+        li.nav-item
+          a.nav-link(href='#login') 登录

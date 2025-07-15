@@ -1,0 +1,38 @@
+extends layout.pug
+
+block title
+  title= page.title + ' | ' + config.title
+
+block content
+  include ../_partial/header.pug
+  .container
+    .row
+      .col-md-9
+        article.post
+          h1.post-title= page.title
+          .post-meta
+            time(datetime=page.date.toISOString())= date(page.date, 'YYYY-MM-DD')
+            if page.categories && page.categories.length > 0
+              span.post-category
+                |  in
+                each category in page.categories.toArray()
+                  a(href=url_for(category.path))= category.name
+            if page.tags && page.tags.length > 0
+              span.post-tag
+                |  tags
+                each tag in page.tags.toArray()
+                  a(href=url_for(tag.path))= tag.name
+          .post-content
+            != page.content
+          if theme.disqus_shortname
+            #disqus_thread
+            script.
+              var disqus_shortname = '#{theme.disqus_shortname}';
+              (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+      .col-md-3
+        include ../_partial/sidebar.pug
+  include ../_partial/footer.pug

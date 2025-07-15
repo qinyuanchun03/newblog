@@ -1,0 +1,24 @@
+extends layout.pug
+
+block title
+  title= __('archive') + ' | ' + config.title
+
+block content
+  include ../_partial/header.pug
+  .container
+    .row
+      .col-md-9
+        h1.page-title= __('archive')
+        - var lastYear = 0
+        each post in site.posts.sort('date', -1).toArray()
+          - var currentYear = date(post.date, 'YYYY')
+          if currentYear !== lastYear
+            h3.archive-year= currentYear + '年'
+            - lastYear = currentYear
+          ul.archive-list
+            li.archive-item
+              time.archive-item-date(datetime=post.date.toISOString())= date(post.date, 'YYYY-MM-DD')
+              a.archive-item-link(href=url_for(post.path))= post.title
+      .col-md-3
+        include ../_partial/sidebar.pug
+  include ../_partial/footer.pug

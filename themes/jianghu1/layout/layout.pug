@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    block title
+      title Hexo
+    link(rel='stylesheet', href=url_for('css/blog.css'))
+    link(rel='stylesheet', href=url_for('files/font-awesome/css/font-awesome.min.css'))
+    link(rel='stylesheet', href=url_for('files/bootstrap/css/bootstrap.min.css'))
+  body
+    block content
+    script(src=url_for('files/bootstrap/js/bootstrap.bundle.min.js'))
+    script(src=url_for('js/script.js'))

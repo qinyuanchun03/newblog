@@ -1,0 +1,97 @@
+aside.sidebar
+  // Author Profile Section
+  .sidebar-section.author-profile
+    img(src=url_for(theme.author_avatar || 'https://via.placeholder.com/120x120.png?text=Author'), alt='作者头像')
+    h4= config.author || '匿名'
+    p= theme.author_bio || '一位充满热情的作家和技术爱好者。'
+    if theme.github_url
+      a.btn-github(href=theme.github_url, target='_blank')
+        i.fa.fa-github
+        |  GitHub
+
+  // Archive Section
+  //- .sidebar-section
+  //-   h3
+  //-     i.fa.fa-archive
+  //-     | 档案
+  //-   ul.archive-list
+  //-     each year in site.posts.group_by_year().toArray().sort('name', -1)
+  //-       li
+  //-         a(href=url_for('archives/' + year.name))
+  //-           span= year.name + '年'
+  //-         span= year.posts.length
+
+  // Website Stats Section
+  .sidebar-section
+    h3
+      i.fa.fa-line-chart
+      | 网站信息
+    ul.stats-list
+      li
+        div
+          i.fa.fa-pencil-square-o
+          strong 文章：
+        span= site.posts.length
+      li
+        div
+          i.fa.fa-clock-o
+          strong 正常运行时间：
+        span 2069天 // This should be dynamic if possible, but for now hardcoded as per HTML
+      li
+        div
+          i.fa.fa-keyboard-o
+          strong 字：
+        span= total_word_count(site.posts) 
+      li
+        div
+          i.fa.fa-users
+          strong 访客：
+        span 70860 // Hardcoded for now
+      li
+        div
+          i.fa.fa-comment-o
+          strong 浏览数：
+        span 386686 // Hardcoded for now
+      li
+        div
+          i.fa.fa-refresh
+          strong 最后更新：
+        span 4天前 // Hardcoded for now
+
+  // Website Stats Section
+  .sidebar-section
+    h3
+      i.fa.fa-line-chart
+      | 网站信息
+    ul.stats-list
+      li
+        div
+          i.fa.fa-pencil-square-o
+          strong 文章：
+        span= site.posts.length
+      li
+        div
+          i.fa.fa-clock-o
+          strong 正常运行时间：
+        span 2069天 // This should be dynamic if possible, but for now hardcoded as per HTML
+      li
+        div
+          i.fa.fa-keyboard-o
+          strong 字：
+        span= total_word_count(site.posts)
+
+      li
+        div
+          i.fa.fa-users
+          strong 访客：
+        span 70860 // Hardcoded for now
+      li
+        div
+          i.fa.fa-comment-o
+          strong 浏览数：
+        span 386686 // Hardcoded for now
+      li
+        div
+          i.fa.fa-refresh
+          strong 最后更新：
+        span 4天前 // Hardcoded for now

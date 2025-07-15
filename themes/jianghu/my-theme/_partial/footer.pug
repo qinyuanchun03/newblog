@@ -1,0 +1,22 @@
+footer
+  .container
+    .footer-content
+      p &copy; #{date(new Date(), 'YYYY')} #{config.title}. 保留所有权利。
+      if theme.footer_links
+        .footer-links
+          each value, key in theme.footer_links
+            a(href=value)= key
+    if theme.social_links
+      .social-links
+        each value, key in theme.social_links
+          a(href=value, aria-label=key)
+            if key === 'Facebook'
+              i.fa.fa-facebook
+            else if key === 'Twitter'
+              i.fa.fa-twitter
+            else if key === 'Instagram'
+              i.fa.fa-instagram
+            else if key === 'GitHub'
+              i.fa.fa-github
+            else
+              | #{key}

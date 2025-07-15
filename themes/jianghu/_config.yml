@@ -1,0 +1,36 @@
+# Theme Configuration
+menu:
+  Home: /
+  About: /about
+  Categories: /categories
+  Tags: /tags
+  Contact: /contact
+
+# Social Links
+social_links:
+  Facebook: #
+  Twitter: #
+  Instagram: #
+  GitHub: https://github.com/your-github
+
+# Disqus Comments
+disqus_shortname:
+
+# Footer Links
+footer_links:
+  隐私政策: #
+  服务条款: #
+
+# Author Profile
+author_avatar: https://via.placeholder.com/120x120.png?text=Author
+author_bio: 一位充满热情的作家和技术爱好者。
+github_url: https://github.com/johndoe
+
+prism_plugin:
+  # 插件通常需要一些基础配置来启用或指定参数。
+  # 你可以根据插件的文档来设置。一个常见的例子是：
+  theme: "default" # 你可以尝试其他主题，如 'okaidia', 'funky', 'twilight', 'atom-dark' 等。
+                  # 如果你不确定，先用 "default" 或者查看 hexo-prism-plugin 的 README 了解可用主题。
+  languages: []    # 这里可以指定你想预加载或支持的语言。
+                  # 如果留空 `[]`，插件通常会加载 PrismJS 支持的所有语言或根据上下文自动检测。
+                  # 如果你想指定，可以写成：['javascript', 'python', 'java', 'html', 'css'] 等。

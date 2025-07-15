@@ -1,0 +1,13 @@
+nav(aria-label='页面导航')
+  ul.pagination
+    if page.prev
+      li.page-item
+        a.page-link(href=url_for(page.prev.path))
+          i.fa.fa-chevron-left
+    - for (var i = 1; i <= page.total; i++)
+      li.page-item(class={active: i === page.current})
+        a.page-link(href=url_for(i === 1 ? '/' : 'page/' + i))= i
+    if page.next
+      li.page-item
+        a.page-link(href=url_for(page.next.path))
+          i.fa.fa-chevron-right

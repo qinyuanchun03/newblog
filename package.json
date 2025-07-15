@@ -1,0 +1,51 @@
+{
+  "name": "hexo-site",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "hexo generate",
+    "clean": "hexo clean",
+    "deploy": "hexo deploy",
+    "server": "hexo server"
+  },
+  "hexo": {
+    "version": "7.3.0"
+  },
+  "dependencies": {
+    "alpinejs": "^3.14.9",
+    "animate.css": "^4.1.1",
+    "aos": "^2.3.4",
+    "bootstrap": "^5.3.7",
+    "bulma": "^1.0.4",
+    "font-awesome": "^4.7.0",
+    "hexo": "^7.3.0",
+    "hexo-asset-image": "^1.0.0",
+    "hexo-deployer-git": "^4.0.0",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-category": "^2.0.0",
+    "hexo-generator-feed": "^3.0.0",
+    "hexo-generator-index": "^4.0.0",
+    "hexo-generator-search": "^2.4.3",
+    "hexo-generator-sitemap": "^3.0.1",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-pagination": "^4.0.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^7.0.0",
+    "hexo-renderer-pug": "^3.0.0",
+    "hexo-renderer-stylus": "^3.0.1",
+    "hexo-search": "^1.0.5",
+    "hexo-server": "^3.0.0",
+    "hexo-symbols-count-time": "^0.7.1",
+    "hexo-theme-landscape": "^1.0.0",
+    "hexo-wordcount": "^6.0.1",
+    "highlight.js": "^11.11.1",
+    "materialize": "^1.0.0",
+    "milligram": "^1.4.1",
+    "pug": "^3.0.3",
+    "purecss": "^3.0.0",
+    "semantic-ui": "^2.5.0",
+    "spectre.css": "^0.5.9",
+    "tachyons": "^4.12.0",
+    "tailwindcss": "^4.1.11"
+  }
+}
